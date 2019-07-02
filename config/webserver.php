@@ -1,4 +1,4 @@
-<?php
+.<?php
 
 /*
  * This file is part of the hyn/multi-tenant package.
@@ -24,7 +24,7 @@ return [
         /**
          * Whether the integration with Apache2 is currently active.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /**
          * Define the ports of your Apache service.
@@ -60,7 +60,7 @@ return [
          *
          * @info If not set, will revert to the default filesystem.
          */
-        'disk' => null,
+        'disk' => 'local',
 
         'paths' => [
 

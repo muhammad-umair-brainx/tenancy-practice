@@ -46,6 +46,7 @@ class CreateTenant extends Command
      */
     public function handle()
     {
+
         $name = $this->argument('name');
         $email = $this->argument('email');
         if ($this->tenantExists($name, $email)) {
@@ -73,16 +74,20 @@ class CreateTenant extends Command
         $customer->name = $name;
         $customer->email = $email;
         app(CustomerRepository::class)->create($customer);
+
         // associate the customer with a website
         $website = new Website;
         $website->customer()->associate($customer);
         app(WebsiteRepository::class)->create($website);
         // associate the website with a hostname
         $hostname = new Hostname;
+
         $baseUrl = config('app.url_base');
         $hostname->fqdn = "{$name}.{$baseUrl}";
         $hostname->customer()->associate($customer);
         app(HostnameRepository::class)->attach($hostname, $website);
+
+
         return $hostname;
     }
 

@@ -4,13 +4,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            < class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
+
+            <?php
+
+//            dd(\App\User::all());
+
+//                $admin = \App\User::create(['name' => 'new-name', 'email' => 'new@email.com', 'password' => \Illuminate\Support\Facades\Hash::make("new-password")]);
+//
+//                dd($admin);
+?>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
